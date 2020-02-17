@@ -2,6 +2,10 @@
 defaultBaseImageVersion: latest
 stages:
 - name: PROD
+  inputs:
+  - type: git
+    branch: master
+    service: ${GIT_REPO}
   properties:
   - name: CLUSTER_NAMESPACE
     value: ${PROD_CLUSTER_NAMESPACE}
