@@ -6,7 +6,7 @@ metadata:
   name: artifactory
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -17,18 +17,8 @@ spec:
         run: artifactory
     spec:
       containers:
-      - image: ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}
+      - image: docker.bintray.io/jfrog/artifactory-oss:5.5.1
         name: artifactory
-        readinessProbe:
-          tcpSocket:
-            port: 8081
-          initialDelaySeconds: 5
-          periodSeconds: 10
-        livenessProbe:
-          tcpSocket:
-            port: 8081
-        initialDelaySeconds: 15
-        periodSeconds: 20
 ---
 kind: Service
 apiVersion: v1
