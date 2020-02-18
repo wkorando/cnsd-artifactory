@@ -16,7 +16,7 @@ stages:
     value: undefined
     type: text
   - name: REGISTRY_URL
-    value: ${REGISTRY_URL}
+    value: us.icr.io
     type: text
   - name: build_proprties
     value: build.properties
