@@ -3,9 +3,9 @@ defaultBaseImageVersion: latest
 stages:
 - name: PROD
   inputs:
-  - type: job
-    stage: CONTAINERIZE
-    job: Build Docker image
+  - type: git
+    branch: master
+    service: ${GIT_REPO}
   triggers:
   - type: stage
   properties:
